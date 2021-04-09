@@ -28,16 +28,13 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Intro</h2>
+          <h2 className="major">Our Services</h2>
           <span className="image main">
             <img src={pic01} alt="" />
           </span>
+          <h1>Electrical Vehicle Charging</h1>
           <p>
-            Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
-            aliquam facilisis ante interdum congue. Integer mollis, nisl amet
-            convallis, porttitor magna ullamcorper, amet egestas mauris. Ut
-            magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas.
-            By the way, check out my <a href="#work">awesome work</a>.
+          All Netz Electric employees are Tesla and Chargepoint certified installers. We can provide installation for condominium buildings, residential homes, and commercial parking lots.
           </p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -96,13 +93,10 @@ class Main extends React.Component {
             <img src={pic03} alt="" />
           </span>
           <p>
-            Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent
-            eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
-            erat volutpat. Praesent urna nisi, fringila lorem et vehicula
-            lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.
-            Aliquam libero et malesuada fames ac ante ipsum primis in faucibus.
-            Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit
-            amet.
+          Here at Netz Electric we are focused on making your construction project smooth and efficient. We feel obligated to offer fair pricing, trust worthy service and a open line of communication.
+          <br>
+          </br>
+          Book a consultation or send us an email to get started on your next project. No matter how big or small we're here to help!
           </p>
           {close}
         </article>
