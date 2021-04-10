@@ -3,8 +3,14 @@ import React from 'react'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
+import evcharger from '../images/EVcharger.jpeg'
+import home from '../images/home.jpeg'
+import industrial from '../images/industrial.jpeg'
+import commercial from '../images/commercial.jpeg'
+import emailjs from 'emailjs-com';
 
 class Main extends React.Component {
+  
   render() {
     let close = (
       <div
@@ -14,6 +20,17 @@ class Main extends React.Component {
         }}
       ></div>
     )
+    function sendEmail(e) {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_aowwt6i', 'template_aet7kl2', e.target, 'user_a0rjfw8OMeVzDOA0zEqBY')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    }
+    
 
     return (
       <div
@@ -30,25 +47,33 @@ class Main extends React.Component {
         >
           <h2 className="major">Our Services</h2>
           <span className="image main">
-            <img src={pic01} alt="" />
+            <img src={evcharger} alt="" />
           </span>
-          <h1>Electrical Vehicle Charging</h1>
+          <h2>Electrical Vehicle Charging</h2>
           <p>
           All Netz Electric employees are Tesla and Chargepoint certified installers. We can provide installation for condominium buildings, residential homes, and commercial parking lots.
           </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora
-            torquent per conubia nostra, per inceptos himenaeos. Etiam tristique
-            libero eu nibh porttitor fermentum. Nullam venenatis erat id
-            vehicula viverra. Nunc ultrices eros ut ultricies condimentum.
-            Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae
-            dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in
-            lectus. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas. In non lorem sit amet elit
-            placerat maximus. Pellentesque aliquam maximus risus, vel sed
-            vehicula.
-          </p>
+         <button> learn more</button>
+          <span className="image main">
+            <img src={home} alt="" />
+          </span>
+          <h2>Residential</h2>
+          <p>Whether you're looking to add lighting, build your dream home, or start that next construction project Netz Electric is here to help!</p>
+          <button> learn more</button>
+
+          <span className="image main">
+            <img src={industrial} alt="" />
+          </span>
+          <h2>Industrial</h2>
+          <p>Adding a new piece of machinery? Need to change all of your current lighting to LED to save money on hydro cost? Do you have an old piece of machinery that just keeps giving you issues? Give us a call and we will be there for you!</p>
+          <button> learn more</button>
+
+          <span className="image main">
+            <img src={commercial} alt="" />
+          </span>
+          <h2>Commercial</h2>
+          <p>We provide a wide range of services ranging from restaurants to office spaces. We're here to help!</p>
+          <button> learn more</button>
           {close}
         </article>
 
@@ -92,12 +117,17 @@ class Main extends React.Component {
           <span className="image main">
             <img src={pic03} alt="" />
           </span>
+          <h3 style={{textAlign:'center'}}>Reliable Electricians</h3>
           <p>
-          Here at Netz Electric we are focused on making your construction project smooth and efficient. We feel obligated to offer fair pricing, trust worthy service and a open line of communication.
-          <br>
-          </br>
-          Book a consultation or send us an email to get started on your next project. No matter how big or small we're here to help!
+          Netz Electric specializes in residential, commercial and industrial services. Whether you need a small wiring fix or the installation of a state-of-the-art smart home, we can help. 
           </p>
+          <h3 style={{textAlign:'center'}}>Flexible Services</h3>
+          <p>
+          We provide a thorough consultation to explain your available options. With that information, you can choose the scope of work that’s right for your home or business and for your budget. 
+          </p>
+          <h3 style={{textAlign:'center'}}>Satisfaction Guaranteed</h3>
+          <p>
+          We strive to save you both time and money by combining experience, high quality parts and equipment, and exceptional service. We will stick with the job until you are satisfied.          </p>
           {close}
         </article>
 
@@ -109,14 +139,23 @@ class Main extends React.Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">Contact</h2>
-          <form method="post" action="#">
+          <p>We stay in constant communication with our customers until the job is done. To get a free quote, or if you have questions or special requests, just drop us a line. </p>
+          <form onSubmit={sendEmail}>
             <div className="field half first">
               <label htmlFor="name">Name</label>
-              <input type="text" name="name" id="name" />
+              <input type="text" name="user_name" id="name" />
             </div>
             <div className="field half">
               <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" />
+              <input type="email" name="user_email" id="email" />
+            </div>
+            <div className="field half first">
+              <label htmlFor="phone">Phone</label>
+              <input type="text" name="phone" id="phone" />
+            </div>
+            <div className="field half">
+              <label htmlFor="address">Address</label>
+              <input type="text" name="address" id="address" />
             </div>
             <div className="field">
               <label htmlFor="message">Message</label>
@@ -124,20 +163,24 @@ class Main extends React.Component {
             </div>
             <ul className="actions">
               <li>
-                <input type="submit" value="Send Message" className="special" />
+                <input type="submit" value="Get A Free Quote" className="special" onClick={() => {
+          this.props.onCloseArticle()
+        }} />
               </li>
               <li>
                 <input type="reset" value="Reset" />
               </li>
             </ul>
           </form>
+          
+          <p><b>NETZ ELECTRIC</b><br></br><small>17 Mcmahon Drive, Toronto, Ontario M2K 0E4, Canada</small><br></br><small></small></p>
           <ul className="icons">
             <li>
               <a
-                href="#"
-                className="icon fa-twitter"
+                href="https://api.whatsapp.com/send/?phone=16479689674&text&app_absent=0"
+                className="icon fa-whatsapp"
               >
-                <span className="label">Twitter</span>
+                <span className="label">Whatsapp</span>
               </a>
             </li>
             <li>
@@ -150,7 +193,7 @@ class Main extends React.Component {
                 <span className="label">Instagram</span>
               </a>
             </li>
-          
+      
           </ul>
           {close}
         </article>
